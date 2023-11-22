@@ -5,15 +5,31 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "run",
+            "name": "train",
             "type": "python",
             "request": "launch",
             "module": "fnnschedule.tools.run",
-            "justMyCode": true,
+            "justMyCode": false,
             "args": [
                 "train",
-                "fnnconfig.yolo.yolov3_base",
+                // "fnnconfig.yolo.yolov3_base",
+                // "fnnconfig.movenet.movenet_base",
+                "fnnconfig.movenet.movenet_pallet_12kp",
             ]
-        }
+        },
+        {
+            "name": "test",
+            "type": "python",
+            "request": "launch",
+            "module": "fnnschedule.tools.run",
+            "justMyCode": false,
+            "args": [
+                "test",
+                // "fnnconfig.yolo.yolov3_base",
+                // "fnnconfig.movenet.movenet_base",
+                "fnnconfig.movenet.movenet_pallet_12kp",
+            ]
+        },
+        
     ]
 }
