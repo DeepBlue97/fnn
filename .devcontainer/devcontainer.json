@@ -1,0 +1,64 @@
+{
+	"name": "vai3.0_fnn",
+	// "image": "xilinx/vitis-ai-pytorch-gpu:3.0.0.001",
+	"image": "xilinx/vitis-ai-pytorch-gpu:3.0.0.001",
+	// "image": "xilinx/vitis-ai-pytorch-gpu-yolox:3.0.0.001",
+
+	// "dockerFile": "docker/Dockerfile",
+	// "workspaceFolder": "/workspace",
+	"mounts": [
+	  "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+	//   "source=/mnt/d/Share/datasets/coco/coco2017labels/coco,target=/mnt/d/Share/datasets/coco/coco2017labels/coco,type=bind,consistency=cached",
+	  "source=/mnt/d/Share/datasets,target=/datasets,type=bind,consistency=cached",
+
+	//   "source=/dev/shm,target=/dev/shm,type=bind,consistency=cached",
+	//   "source=/opt/xilinx/dsa,target=/opt/xilinx/dsa,type=bind,consistency=cached",
+	//   "source=/opt/xilinx/overlaybins,target=/opt/xilinx/overlaybins,type=bind,consistency=cached",
+	//   "source=/etc/xbutler,target=/etc/xbutler,type=bind,consistency=cached",
+	// tinypose
+	//   "source=/home/peter/workspace/scratch/tinypose_pytorch,target=/tinypose_pytorch,type=bind,consistency=cached",
+	// yolov3
+	//   "source=/home/peter/workspace/forked/my_yolov3,target=/my_yolov3,type=bind,consistency=cached",
+	//   "source=/home/peter/workspace/mitan/YOLO_demo,target=/yolov3_scratch,type=bind,consistency=cached",
+	//   "source=/mnt/d/Share/datasets,target=/datasets,type=bind,consistency=cached"
+
+	],
+	// "forwardPorts": [5555],
+
+	"runArgs": [
+	//   
+	  "--rm",
+	//   "-p=5555:5555",
+	//   "--network=host",
+	  "--add-host=host.docker.internal:host-gateway",
+	  "-e USER=${localUser}",
+	  "-e UID=${localUserId}",
+	  "-e GID=${localGroupId}",
+	  "--gpus=all",
+	  "--shm-size=16G",
+	//   "--user", "root"
+	//   "-e VERSION=latest",
+	//   "-v ${workspaceFolder}:/workspace",
+	//   "-v /dev/shm:/dev/shm",
+	//   "-v /opt/xilinx/dsa:/opt/xilinx/dsa",
+	//   "-v /opt/xilinx/overlaybins:/opt/xilinx/overlaybins",
+	//   "-v /etc/xbutler:/etc/xbutler"
+	],
+	// "runCommand": ["bash", "ln -s /tinypose_pytorch /workspace/Vitis-AI/tinypose_pytorch"]
+	// "runCommand": ["bash", "conda activate vitis-ai-pytorch"]
+	// "runCommand": ["sudo chmod 777 /root -R"]
+	"runCommand": [
+		// "ln -s /datasets /workspaces/pt_movenet_3.5/data"
+	],
+
+	// "appPort": ["5555:5555"],
+
+	// "networking": {
+	// 	"ports": [
+	// 	  {
+	// 		"containerPort": 5555,
+	// 		"hostPort": 5555
+	// 	  },
+	// 	]
+	// }
+}

@@ -15,6 +15,6 @@ folders=(
 # 遍历文件夹并执行pip install -e .
 for folder in "${folders[@]}"; do
   cd "$folder" || exit
-  pip install -e .
+  pip install -e . -i https://pypi.tuna.tsinghua.edu.cn/simple
   cd ..
 done
