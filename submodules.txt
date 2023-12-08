@@ -3,6 +3,5 @@ git@github.com:DeepBlue97/fnndataset.git
 git@github.com:DeepBlue97/fnnfunctor.git
 git@github.com:DeepBlue97/fnnmodel.git
 git@github.com:DeepBlue97/fnnmodule.git
-git@github.com:DeepBlue97/fnnschedule.git
 git@github.com:DeepBlue97/fnnaug.git
 git@github.com:DeepBlue97/fnnvisual.git
