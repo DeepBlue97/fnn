@@ -1,5 +1,4 @@
-# Free Neural Network(FNN)
-
+# FNN Project
 
 # Clone projects
 ``` bash
@@ -24,4 +23,3 @@ sudo chmod 777 /root -R
 python -m fnnschedule.tools.run train fnnconfig.movenet.movenet_pallet_12kp
 
 ```
-
