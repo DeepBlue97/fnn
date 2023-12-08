@@ -8,13 +8,15 @@
             "name": "train",
             "type": "python",
             "request": "launch",
-            "module": "fnnschedule.tools.run",
+            "module": "fnnmodel.tools.run",
             "justMyCode": false,
             "args": [
                 "train",
                 // "fnnconfig.yolo.yolov3_base",
                 // "fnnconfig.movenet.movenet_base",
-                "fnnconfig.movenet.movenet_pallet_12kp",
+                "fnnconfig.yolo.yolox_base",
+                // "fnnconfig.movenet.movenet_pallet_12kp",
+                // "/home/peter/workspace/scratch/fnn/fnnconfig/src/fnnconfig/yolo/yolox_base_b16.py"
             ]
         },
         {

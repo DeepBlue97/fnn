@@ -8,7 +8,7 @@ folders=(
   "fnnfunctor"
   "fnnmodel"
   "fnnmodule"
-  "fnnschedule"
+  # "fnnschedule"
   "fnnvisual"
 )
 
