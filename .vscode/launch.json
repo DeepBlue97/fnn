@@ -20,16 +20,16 @@
             ]
         },
         {
-            "name": "test",
+            "name": "val",
             "type": "python",
             "request": "launch",
-            "module": "fnnschedule.tools.run",
+            "module": "fnnmodel.tools.run",
             "justMyCode": false,
             "args": [
-                "test",
+                "val",
                 // "fnnconfig.yolo.yolov3_base",
                 // "fnnconfig.movenet.movenet_base",
-                "fnnconfig.movenet.movenet_pallet_12kp",
+                "fnnconfig.yolo.yolox_base",
             ]
         },
         
