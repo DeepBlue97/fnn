@@ -1,0 +1,42 @@
+version: '3'
+services:
+    yolox_train:
+      container_name: $CONTAINER_NAME
+      image: 'xilinx/vitis-ai-pytorch-gpu-yolox:3.0.0.005'
+      shm_size: 16G
+      environment:
+        # - SHMSIZE=8589934592
+        # - SHMMAX=<maximum_number_of_shared_memory_blocks>
+        # - USER=mitan
+        - GID=1000
+        - UID=1000
+        # - DOCKERACTION=$DOCKERACTION
+        # - TRAIN_ARGS=$TRAIN_ARGS
+        - NVIDIA_VISIBLE_DEVICES=all
+        # - ARCH=$ARCH
+      volumes:
+        # - /dev/shm:/dev/shm
+        # 为了在模型内外都能用软链接访问到数据集
+        - '../../:/workspaces'
+        - '$INPUT_FOLDER:/datasets'
+        - '$OUTPUT_FOLDER:/output'
+        - '$CONFIG_FILE:/config.yaml'
+        # - '/mnt/d/Share/datasets/coco:/coco'
+        # - '$DATASETS_DIR:/datasets'
+        # - '/opt/xilinx/dsa:/opt/xilinx/dsa'
+        # - '/opt/xilinx/overlaybins:/opt/xilinx/overlaybins'
+        # - '/opt/keras-YOLOv3-model-set:/opt/keras-YOLOv3-model-set'
+        # - '/dev/shm:/dev/shm'
+      working_dir: /workspaces
+      # entrypoint: '/bin/bash docker/00_docker_run_train.sh'
+      # entrypoint: '/bin/bash docker/00_train/run.sh'
+      entrypoint: '/bin/bash ./code/run_qat_00_train.sh'
+      # entrypoint: 'ls'
+      network_mode: host
+      deploy:
+        resources:
+          reservations:
+            devices:
+              - driver: "nvidia"
+                count: "all"
+                capabilities: ["gpu"]

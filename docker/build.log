@@ -1,0 +1,219 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load .dockerignore
+#1 transferring context: 2B done
+#1 DONE 0.1s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 3.83kB done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for docker.io/xilinx/vitis-ai-pytorch-gpu-yolox:3.0.0.005
+#3 DONE 0.0s
+
+#4 [1/8] FROM docker.io/xilinx/vitis-ai-pytorch-gpu-yolox:3.0.0.005
+#4 DONE 0.0s
+
+#5 [4/8] RUN /opt/vitis_ai/conda/envs/vitis-ai-pytorch/bin/pip install --user albumentations -i https://pypi.tuna.tsinghua.edu.cn/simple
+#5 CACHED
+
+#6 [6/8] RUN /opt/vitis_ai/conda/envs/vitis-ai-pytorch/bin/pip list | grep imgaug
+#6 CACHED
+
+#7 [5/8] RUN /opt/vitis_ai/conda/envs/vitis-ai-pytorch/bin/pip install pycocotools -i https://pypi.tuna.tsinghua.edu.cn/simple
+#7 CACHED
+
+#8 [2/8] RUN /opt/vitis_ai/conda/envs/vitis-ai-pytorch/bin/pip install --user imgaug -i https://pypi.tuna.tsinghua.edu.cn/simple
+#8 CACHED
+
+#9 [3/8] RUN /opt/vitis_ai/conda/envs/vitis-ai-pytorch/bin/pip install --user opencv-python -i https://pypi.tuna.tsinghua.edu.cn/simple
+#9 CACHED
+
+#10 [7/8] RUN /opt/vitis_ai/conda/envs/vitis-ai-pytorch/bin/pip list | grep pycocotools
+#10 CACHED
+
+#11 [8/8] RUN /opt/vitis_ai/conda/envs/vitis-ai-pytorch/bin/pip list
+#11 1.045 Package                       Version                   Editable project location
+#11 1.045 ----------------------------- ------------------------- -------------------------
+#11 1.045 absl-py                       2.0.0
+#11 1.045 albumentations                1.3.1
+#11 1.045 anyio                         3.7.1
+#11 1.045 argon2-cffi                   21.3.0
+#11 1.045 argon2-cffi-bindings          21.2.0
+#11 1.046 attrs                         23.1.0
+#11 1.046 backcall                      0.2.0
+#11 1.046 backports.functools-lru-cache 1.6.5
+#11 1.046 beautifulsoup4                4.12.2
+#11 1.046 bleach                        6.0.0
+#11 1.046 cachetools                    5.3.2
+#11 1.046 certifi                       2023.7.22
+#11 1.047 cffi                          1.15.1
+#11 1.047 charset-normalizer            3.2.0
+#11 1.047 ck                            2.6.3
+#11 1.047 colorama                      0.4.6
+#11 1.047 comm                          0.1.4
+#11 1.047 cycler                        0.11.0
+#11 1.047 debugpy                       1.6.3
+#11 1.047 decorator                     4.4.2
+#11 1.048 defusedxml                    0.7.1
+#11 1.048 dill                          0.3.7
+#11 1.048 easydict                      1.10
+#11 1.048 entrypoints                   0.4
+#11 1.048 exceptiongroup                1.1.3
+#11 1.048 fastjsonschema                2.18.0
+#11 1.048 fire                          0.5.0
+#11 1.049 flatbuffers                   23.5.26
+#11 1.049 flit_core                     3.9.0
+#11 1.049 fonttools                     4.38.0
+#11 1.049 google-auth                   2.23.4
+#11 1.049 google-auth-oauthlib          0.4.6
+#11 1.050 graphviz                      0.19.1
+#11 1.050 grpcio                        1.59.2
+#11 1.050 h5py                          2.10.0
+#11 1.051 idna                          3.4
+#11 1.051 imageio                       2.31.1
+#11 1.051 imgaug                        0.4.0
+#11 1.051 importlib-metadata            4.11.4
+#11 1.052 importlib-resources           6.0.0
+#11 1.052 iniconfig                     2.0.0
+#11 1.052 ipykernel                     6.16.2
+#11 1.052 ipython                       7.33.0
+#11 1.053 ipython-genutils              0.2.0
+#11 1.053 ipywidgets                    8.1.0
+#11 1.054 jedi                          0.19.0
+#11 1.054 Jinja2                        3.1.2
+#11 1.054 joblib                        1.3.2
+#11 1.055 jsonschema                    4.17.3
+#11 1.055 jupyter                       1.0.0
+#11 1.055 jupyter_client                7.4.9
+#11 1.055 jupyter-console               6.5.1
+#11 1.055 jupyter_core                  4.11.1
+#11 1.056 jupyter-server                1.23.4
+#11 1.056 jupyterlab-pygments           0.2.2
+#11 1.056 jupyterlab-widgets            3.0.8
+#11 1.057 kiwisolver                    1.4.4
+#11 1.057 llvmlite                      0.39.1
+#11 1.057 loguru                        0.7.0
+#11 1.057 Markdown                      3.4.4
+#11 1.058 MarkupSafe                    2.1.1
+#11 1.058 marshmallow                   3.20.1
+#11 1.058 matplotlib                    3.4.3
+#11 1.059 matplotlib-inline             0.1.6
+#11 1.059 mistune                       3.0.1
+#11 1.059 munch                         4.0.0
+#11 1.059 munkres                       1.1.4
+#11 1.060 natsort                       8.4.0
+#11 1.060 nbclassic                     1.0.0
+#11 1.060 nbclient                      0.7.0
+#11 1.060 nbconvert                     7.6.0
+#11 1.060 nbformat                      5.8.0
+#11 1.060 nest-asyncio                  1.5.6
+#11 1.061 networkx                      2.5.1
+#11 1.061 nibabel                       4.0.2
+#11 1.061 ninja                         1.11.1.1
+#11 1.061 notebook                      6.5.5
+#11 1.061 notebook_shim                 0.2.3
+#11 1.061 numba                         0.56.4
+#11 1.061 numpy                         1.21.6
+#11 1.061 oauthlib                      3.2.2
+#11 1.062 olefile                       0.46
+#11 1.062 onnx                          1.8.1
+#11 1.062 onnx-simplifier               0.3.5
+#11 1.062 onnxoptimizer                 0.3.13
+#11 1.062 onnxruntime                   1.8.0
+#11 1.062 opencv-contrib-python         4.8.0.76
+#11 1.062 opencv-python                 4.8.1.78
+#11 1.063 opencv-python-headless        4.8.1.78
+#11 1.063 orderedset                    2.0.3
+#11 1.063 packaging                     23.1
+#11 1.063 paho-mqtt                     1.6.1
+#11 1.063 pandas                        1.3.1
+#11 1.063 pandocfilters                 1.5.0
+#11 1.064 parso                         0.8.3
+#11 1.064 pexpect                       4.8.0
+#11 1.064 pickleshare                   0.7.5
+#11 1.064 Pillow                        9.5.0
+#11 1.064 pip                           23.2.1
+#11 1.065 pkgutil_resolve_name          1.3.10
+#11 1.065 pluggy                        1.0.0
+#11 1.065 progressbar2                  4.2.0
+#11 1.065 prometheus-client             0.17.1
+#11 1.066 prompt-toolkit                3.0.39
+#11 1.066 protobuf                      3.18.1
+#11 1.066 psutil                        5.9.3
+#11 1.066 ptyprocess                    0.7.0
+#11 1.066 pyasn1                        0.5.0
+#11 1.067 pyasn1-modules                0.3.0
+#11 1.067 pybind11                      2.10.0
+#11 1.067 pybind11-global               2.10.0
+#11 1.067 pycocotools                   2.0.7
+#11 1.068 pycparser                     2.21
+#11 1.068 Pygments                      2.16.1
+#11 1.068 pyparsing                     3.1.1
+#11 1.068 pyrsistent                    0.18.1
+#11 1.068 pytest                        7.4.0
+#11 1.068 python-dateutil               2.8.2
+#11 1.068 python-utils                  3.6.0
+#11 1.069 pytorch-nndct                 3.0.0-a44284e-torch1.12.1
+#11 1.069 pytz                          2023.3
+#11 1.069 PyWavelets                    1.3.0
+#11 1.069 PyYAML                        6.0
+#11 1.070 pyzmq                         24.0.1
+#11 1.070 qtconsole                     5.4.3
+#11 1.070 QtPy                          2.3.1
+#11 1.071 qudida                        0.0.4
+#11 1.071 requests                      2.31.0
+#11 1.071 requests-oauthlib             1.3.1
+#11 1.072 rsa                           4.9
+#11 1.072 SC                            2.0
+#11 1.072 scikit-image                  0.19.3
+#11 1.073 scikit-learn                  0.24.2
+#11 1.073 scipy                         1.7.3
+#11 1.073 Send2Trash                    1.8.2
+#11 1.073 setuptools                    59.8.0
+#11 1.073 shapely                       2.0.2
+#11 1.074 six                           1.16.0
+#11 1.074 sniffio                       1.3.0
+#11 1.075 soupsieve                     2.3.2.post1
+#11 1.075 tabulate                      0.9.0
+#11 1.075 tensorboard                   2.11.2
+#11 1.075 tensorboard-data-server       0.6.1
+#11 1.076 tensorboard-plugin-wit        1.8.1
+#11 1.076 termcolor                     2.3.0
+#11 1.076 terminado                     0.17.1
+#11 1.076 thop                          0.1.1.post2209072238
+#11 1.076 threadpoolctl                 3.1.0
+#11 1.076 tifffile                      2021.11.2
+#11 1.077 tinycss2                      1.2.1
+#11 1.077 toml                          0.10.2
+#11 1.077 tomli                         2.0.1
+#11 1.077 torch                         1.12.1
+#11 1.077 torchvision                   0.13.1+cu113
+#11 1.077 tornado                       6.2
+#11 1.077 tqdm                          4.66.1
+#11 1.078 traitlets                     5.9.0
+#11 1.078 typing_extensions             4.7.1
+#11 1.078 unicodedata2                  14.0.0
+#11 1.078 urllib3                       2.0.4
+#11 1.078 vai-utf                       0.1.0
+#11 1.078 wcwidth                       0.2.6
+#11 1.078 webencodings                  0.5.1
+#11 1.079 websocket-client              1.6.1
+#11 1.079 Werkzeug                      2.2.3
+#11 1.079 wheel                         0.41.1
+#11 1.079 widgetsnbextension            4.0.8
+#11 1.079 xnnc                          3.0.0
+#11 1.079 yacs                          0.1.8
+#11 1.079 yolox                         0.3.0                     /workspace
+#11 1.080 zipp                          3.15.0
+#11 DONE 1.3s
+
+#12 exporting to image
+#12 exporting layers
+#12 exporting layers 0.2s done
+#12 writing image sha256:126480ab2a3b62f31bb9b6ac1f75d4edb7abcd09acd737e23dd69269fb0f0e21 0.0s done
+#12 naming to docker.io/xilinx/vitis-ai-pytorch-gpu-yolox:3.0.0.006 0.0s done
+#12 DONE 0.3s
+
+What's Next?
+  View a summary of image vulnerabilities and recommendations → docker scout quickview

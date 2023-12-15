@@ -1,7 +1,7 @@
 {
 	"name": "vai3.0_fnn",
 	// "image": "xilinx/vitis-ai-pytorch-gpu:3.0.0.001",
-	"image": "xilinx/vitis-ai-pytorch-gpu-yolox:3.0.0.005",
+	"image": "xilinx/vitis-ai-pytorch-gpu-yolox:3.0.0.006",
 
 	// "dockerFile": "docker/Dockerfile",
 	// "workspaceFolder": "/workspace",
