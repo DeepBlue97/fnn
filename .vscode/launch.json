@@ -32,6 +32,20 @@
                 "fnnconfig.yolo.yolox_base",
             ]
         },
+        {
+            "name": "deploy",
+            "type": "python",
+            "request": "launch",
+            "module": "fnnmodel.tools.run",
+            "justMyCode": false,
+            "args": [
+                "deploy",
+                // "fnnconfig.yolo.yolov3_base",
+                // "fnnconfig.movenet.movenet_base",
+                "fnnconfig.yolo.yolox_base",
+                // ">>", "deploy.log"
+            ]
+        },
         
     ]
 }
