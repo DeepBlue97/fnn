@@ -2,7 +2,8 @@ version: '3'
 services:
     yolox_train:
       container_name: $CONTAINER_NAME
-      image: 'xilinx/vitis-ai-pytorch-gpu-yolox:3.0.0.006'
+      # image: 'xilinx/vitis-ai-pytorch-gpu-yolox:3.0.0.006'
+      image: 'mitan/fnn-pytorch-dcu-yolox:0.0.3'
       shm_size: 16G
       environment:
         # - SHMSIZE=8589934592
@@ -30,10 +31,15 @@ services:
       working_dir: /workspaces
       entrypoint: '/bin/bash docker/00_train/run.sh'
       network_mode: host
-      deploy:
-        resources:
-          reservations:
-            devices:
-              - driver: "nvidia"
-                count: "all"
-                capabilities: ["gpu"]
+      # DCU device
+      devices:
+        - /dev/kfd:/dev/kfd
+        - /dev/dri:/dev/dri
+      # # GPU deivce
+      # deploy:
+      #   resources:
+      #     reservations:
+      #       devices:
+      #         - driver: "nvidia"
+      #           count: "all"
+      #           capabilities: ["gpu"]

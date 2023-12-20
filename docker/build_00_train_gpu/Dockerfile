@@ -4,7 +4,8 @@
 # Method Ⅱ: use this Dockerfile to build.
 ####################################
 
-FROM xilinx/vitis-ai-pytorch-gpu-yolox:3.0.0.005
+# FROM xilinx/vitis-ai-pytorch-gpu-yolox:3.0.0.005
+FROM 56c3d07e8e02
 
 USER vitis-ai-user
 
@@ -12,6 +13,8 @@ RUN /opt/vitis_ai/conda/envs/vitis-ai-pytorch/bin/pip install --user imgaug -i h
 RUN /opt/vitis_ai/conda/envs/vitis-ai-pytorch/bin/pip install --user opencv-python -i https://pypi.tuna.tsinghua.edu.cn/simple
 RUN /opt/vitis_ai/conda/envs/vitis-ai-pytorch/bin/pip install --user albumentations -i https://pypi.tuna.tsinghua.edu.cn/simple
 RUN /opt/vitis_ai/conda/envs/vitis-ai-pytorch/bin/pip install --user pycocotools -i https://pypi.tuna.tsinghua.edu.cn/simple
+RUN /opt/vitis_ai/conda/envs/vitis-ai-pytorch/bin/pip install --user paho-mqtt -i https://pypi.tuna.tsinghua.edu.cn/simple
+RUN /opt/vitis_ai/conda/envs/vitis-ai-pytorch/bin/pip install --user tabulate -i https://pypi.tuna.tsinghua.edu.cn/simple
 
 
 # RUN /opt/vitis_ai/conda/envs/vitis-ai-pytorch/bin/pip list | grep imgaug
