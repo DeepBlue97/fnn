@@ -6,6 +6,8 @@
 
 FROM xilinx/vitis-ai-pytorch-gpu-yolox:3.0.0.005
 
+USER vitis-ai-user
+
 RUN /opt/vitis_ai/conda/envs/vitis-ai-pytorch/bin/pip install --user imgaug -i https://pypi.tuna.tsinghua.edu.cn/simple
 RUN /opt/vitis_ai/conda/envs/vitis-ai-pytorch/bin/pip install --user opencv-python -i https://pypi.tuna.tsinghua.edu.cn/simple
 RUN /opt/vitis_ai/conda/envs/vitis-ai-pytorch/bin/pip install --user albumentations -i https://pypi.tuna.tsinghua.edu.cn/simple
