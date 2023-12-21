@@ -29,7 +29,7 @@ services:
         # - '/opt/keras-YOLOv3-model-set:/opt/keras-YOLOv3-model-set'
         # - '/dev/shm:/dev/shm'
       working_dir: /workspaces
-      entrypoint: '/bin/bash docker/00_train/run.sh'
+      entrypoint: '/bin/bash docker/00_train/run-hydcu.sh'
       network_mode: host
       # DCU device
       devices:

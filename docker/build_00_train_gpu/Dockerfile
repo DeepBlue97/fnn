@@ -4,8 +4,7 @@
 # Method Ⅱ: use this Dockerfile to build.
 ####################################
 
-# FROM xilinx/vitis-ai-pytorch-gpu-yolox:3.0.0.005
-FROM 56c3d07e8e02
+FROM xilinx/vitis-ai-pytorch-gpu-yolox:3.0.0.005
 
 USER vitis-ai-user
 

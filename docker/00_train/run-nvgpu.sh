@@ -1,7 +1,7 @@
 cd /workspaces
 
-# # access to conda env for viti-ai container
-# source /opt/vitis_ai/conda/bin/activate vitis-ai-pytorch
+# access to conda env for viti-ai container
+source /opt/vitis_ai/conda/bin/activate vitis-ai-pytorch
 
 # install fnn submodules
 ./submodules_install.sh
