@@ -24,12 +24,14 @@ DEFAULT_PROC="proc"
 DEFAULT_INPUT_FOLDER="$PWD/00_input"
 DEFAULT_OUTPUT_FOLDER="$PWD/01_output"
 DEFAULT_CONFIG_FILE="$PWD/00_input/config.yaml"
+DEFAULT_ARCH="hydcu"
 
 PROC=""
 INPUT_FOLDER=""
 OUTPUT_FOLDER=""
 UPLOAD_FOLDER=""
 CONFIG_FILE=""
+ARCH=""
 
 #---------------------------------------------------------------
 #  Step 2. Parse CMD and set Variable.
@@ -56,6 +58,10 @@ for arg in "$@"; do
     if [ "$arg" = "--proc" ]; then
         index_next=$((index + 1))
         PROC=${!index_next}
+    fi
+    if [ "$arg" = "--arch" ]; then
+        index_next=$((index + 1))
+        ARCH=${!index_next}
     fi
     index=$((index + 1))
 done
@@ -94,6 +100,14 @@ if [ "$PROC" = "" ]; then
     echo "Set Default PROC: $DEFAULT_PROC"
 else
     echo "[INFO]PROC: $PROC"
+fi
+
+if [ "$ARCH" = "" ]; then
+    echo "[INFO]Not specified: ARCH"
+    ARCH=$DEFAULT_ARCH
+    echo "Set Default ARCH: $DEFAULT_ARCH"
+else
+    echo "[INFO]ARCH: $ARCH"
 fi
 
 #---------------------------------------------------------------
@@ -154,12 +168,12 @@ export CONFIG_FILE=$CONFIG_FILE
 
 if [ "$1" = "start" ]; then
     echo "Creating container $CONTAINER_NAME ..."
-    docker-compose -f docker/00_train/docker-compose.yml -p $CONTAINER_NAME up # -d
+    docker-compose -f docker/00_train/docker-compose-$ARCH.yml -p $CONTAINER_NAME up # -d
 elif [ "$1" = "stop" ]; then
     CONTAINER_NAME=$(cat "$OUTPUT_FOLDER/$PROC.containerid")
     export CONTAINER_NAME=$CONTAINER_NAME
     echo "Stopping container $CONTAINER_NAME ... "
-    docker-compose -f docker/00_train/docker-compose.yml -p $CONTAINER_NAME down
+    docker-compose -f docker/00_train/docker-compose-$ARCH.yml -p $CONTAINER_NAME down
     # docker rm -f $(docker ps -a |  grep "$CONTAINER_NAME*"  | awk '{print $1}')
     echo "Stopped container: $CONTAINER_NAME"
 else
