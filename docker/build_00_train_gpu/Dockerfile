@@ -4,7 +4,7 @@
 # Method Ⅱ: use this Dockerfile to build.
 ####################################
 
-FROM xilinx/vitis-ai-pytorch-gpu-yolox:3.0.0.005
+FROM xilinx/vitis-ai-pytorch-gpu-yolox:3.0.0.006
 
 USER vitis-ai-user
 
@@ -15,6 +15,16 @@ RUN /opt/vitis_ai/conda/envs/vitis-ai-pytorch/bin/pip install --user pycocotools
 RUN /opt/vitis_ai/conda/envs/vitis-ai-pytorch/bin/pip install --user paho-mqtt -i https://pypi.tuna.tsinghua.edu.cn/simple
 RUN /opt/vitis_ai/conda/envs/vitis-ai-pytorch/bin/pip install --user tabulate -i https://pypi.tuna.tsinghua.edu.cn/simple
 
+USER root
+RUN useradd -u 1001 mitan 
+RUN usermod -aG mitan vitis-ai-user
+RUN newgrp mitan
+
+#  \
+#     && useradd -u 1001 -g mitan -s /bin/bash -m mitan
+
+# RUN usermod -aG mitan \
+#     && newgrp mitan
 
 # RUN /opt/vitis_ai/conda/envs/vitis-ai-pytorch/bin/pip list | grep imgaug
 # RUN /opt/vitis_ai/conda/envs/vitis-ai-pytorch/bin/pip list | grep pycocotools

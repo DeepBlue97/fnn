@@ -20,12 +20,14 @@ DEFAULT_WEIGHT_FILE="$pwd/01_trained_model/exp/weights/best.pt"
 DEFAULT_DATASET_FOLDER="$pwd/00_input/datasets/custom_detection"
 DEFAULT_OUTPUT_FOLDER="$PWD/02_quanted_model"
 DEFAULT_PROC="proc"
+DEFAULT_ARCH="nvgpu"
 
 CONFIG_FILE=""
 WEIGHT_FILE=""
 DATASET_FOLDER=""
 OUTPUT_FOLDER=""
 PROC=""
+ARCH=""
 
 #---------------------------------------------------------------
 #  Step 2. Parse CMD and set Variable.
@@ -54,7 +56,10 @@ for arg in "$@"; do
         index_next=$((index + 1))
         PROC=${!index_next}
     fi
-
+    if [ "$arg" = "--arch" ]; then
+        index_next=$((index + 1))
+        ARCH=${!index_next}
+    fi
     index=$((index + 1))
 done
 
@@ -102,6 +107,13 @@ else
     echo "[INFO]PROC: $PROC"
 fi
 
+if [ "$ARCH" = "" ]; then
+    echo "[INFO]Not specified: ARCH"
+    ARCH=$DEFAULT_ARCH
+    echo "Set Default ARCH: $DEFAULT_ARCH"
+else
+    echo "[INFO]ARCH: $ARCH"
+fi
 #---------------------------------------------------------------
 # Step 4. Check Volumes for docker.
 #---------------------------------------------------------------
@@ -172,12 +184,12 @@ export PROC=$PROC
 
 if [ "$1" = "start" ]; then
     echo "Creating container $CONTAINER_NAME ..."
-    docker-compose -f docker/01_quant/docker-compose.yml -p $CONTAINER_NAME up # -d
+    docker-compose -f docker/01_quant/docker-compose-$ARCH.yml -p $CONTAINER_NAME up # -d
 elif [ "$1" = "stop" ]; then
     CONTAINER_NAME=$(cat "$OUTPUT_FOLDER/$PROC.containerid")
     export CONTAINER_NAME=$CONTAINER_NAME
     echo "Stopping container $CONTAINER_NAME ... "
-    docker-compose -f docker/01_quant/docker-compose.yml -p $CONTAINER_NAME down
+    docker-compose -f docker/01_quant/docker-compose-$ARCH.yml -p $CONTAINER_NAME down
     # docker rm -f $(docker ps -a |  grep "$CONTAINER_NAME*"  | awk '{print $1}')
     echo "Stopped container: $CONTAINER_NAME"
 else

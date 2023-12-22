@@ -2,11 +2,12 @@ version: '3'
 services:
     yolox_quant:
       container_name: $CONTAINER_NAME
-      image: 'mitan/fnn-pytorch-dcu-yolox:0.0.3'
+      # image: 'mitan/fnn-pytorch-dcu-yolox:0.0.3'
+      image: 'xilinx/vitis-ai-pytorch-gpu-yolox:3.0.0.007'
       shm_size: 16G
       environment:
-        - GID=1000
-        - UID=1000
+        - GID=1001
+        - UID=1001
         - NVIDIA_VISIBLE_DEVICES=all
       volumes:
         # - /dev/shm:/dev/shm
@@ -17,11 +18,11 @@ services:
         - '$OUTPUT_FOLDER:/output'
         - '$CONFIG_FILE:/config.py'
       working_dir: /workspaces
-      entrypoint: '/bin/bash docker/01_quant/run-hydcu.sh'
+      entrypoint: '/bin/bash docker/01_quant/run-nvgpu.sh'
       network_mode: host
-      devices:
-        - /dev/kfd:/dev/kfd
-        - /dev/dri:/dev/dri
+      # devices:
+      #   - /dev/kfd:/dev/kfd
+      #   - /dev/dri:/dev/dri
       # deploy:
       #   resources:
       #     reservations:
