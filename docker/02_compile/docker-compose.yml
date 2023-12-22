@@ -2,31 +2,25 @@ version: '3'
 services:
     yolox_compile:
       container_name: $CONTAINER_NAME
-      image: 'xilinx/vitis-ai-pytorch-gpu-yolox:3.0.0.005'
+      image: 'xilinx/vitis-ai-pytorch-gpu-yolox:3.0.0.007'
       shm_size: 16G
       environment:
-        # - SHMSIZE=8589934592
-        # - SHMMAX=<maximum_number_of_shared_memory_blocks>
-        # - USER=mitan
         - GID=1000
         - UID=1000
-        # - DOCKERACTION=$DOCKERACTION
-        # - TRAIN_ARGS=$TRAIN_ARGS
         - NVIDIA_VISIBLE_DEVICES=all
-        # - ARCH=$ARCH
       volumes:
         - '../../:/workspaces'
-        - '$WEIGHT_FILE:/DetectionModel_int.xmodel'
+        - '$WEIGHT_FILE:/FNNQuantedModel_int.xmodel'
         - '$ARCH_FILE:/arch.json'
         - '$OUTPUT_FOLDER:/output'
         - '$UPLOAD_FOLDER:/upload'
       working_dir: /workspaces
-      entrypoint: '/bin/bash code/run_qat_02_compile.sh'
+      entrypoint: '/bin/bash docker/02_compile/run.sh'
       network_mode: host
-      deploy:
-        resources:
-          reservations:
-            devices:
-              - driver: "nvidia"
-                count: "all"
-                capabilities: ["gpu"]
+      # deploy:
+      #   resources:
+      #     reservations:
+      #       devices:
+      #         - driver: "nvidia"
+      #           count: "all"
+      #           capabilities: ["gpu"]

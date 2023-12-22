@@ -6,8 +6,8 @@ services:
       image: 'xilinx/vitis-ai-pytorch-gpu-yolox:3.0.0.007'
       shm_size: 16G
       environment:
-        - GID=1001
-        - UID=1001
+        - GID=1000
+        - UID=1000
         - NVIDIA_VISIBLE_DEVICES=all
       volumes:
         # - /dev/shm:/dev/shm
