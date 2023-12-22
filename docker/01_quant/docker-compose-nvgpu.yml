@@ -1,0 +1,28 @@
+version: '3'
+services:
+    yolox_quant:
+      container_name: $CONTAINER_NAME
+      image: 'xilinx/vitis-ai-pytorch-gpu-yolox:3.0.0.006'
+      shm_size: 16G
+      environment:
+        - GID=1000
+        - UID=1000
+        - NVIDIA_VISIBLE_DEVICES=all
+      volumes:
+        # - /dev/shm:/dev/shm
+        # 为了在模型内外都能用软链接访问到数据集
+        - '../../:/workspaces'
+        - '$WEIGHT_FILE:/weight.pth'
+        - '$DATASET_FOLDER:/datasets'
+        - '$OUTPUT_FOLDER:/output'
+        - '$CONFIG_FILE:/config.py'
+      working_dir: /workspaces
+      entrypoint: '/bin/bash docker/01_quant/run-nvgpu.sh'
+      network_mode: host
+      deploy:
+        resources:
+          reservations:
+            devices:
+              - driver: "nvidia"
+                count: "all"
+                capabilities: ["gpu"]
