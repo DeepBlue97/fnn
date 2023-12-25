@@ -1,9 +1,9 @@
 {
 	"name": "vai3.0_fnn",
 	// "image": "xilinx/vitis-ai-pytorch-gpu:3.0.0.001",
-	// "image": "xilinx/vitis-ai-pytorch-gpu-yolox:3.0.0.006",
+	// "image": "xilinx/vitis-ai-pytorch-gpu-yolox:3.0.0.007",
 	// "image": "56c3d07e8e02",
-	"image": "11.100.1.10:5000/dcu/admin/codeserver/vscode-pytorch:1.10.0-centos7.6-dtk-22.10-py37",
+	// "image": "11.100.1.10:5000/dcu/admin/codeserver/vscode-pytorch:1.10.0-centos7.6-dtk-22.10-py37",
 
 
 	// "dockerFile": "docker/Dockerfile",
@@ -13,7 +13,7 @@
 	//   "source=/mnt/d/Share/datasets/coco/coco2017labels/coco,target=/mnt/d/Share/datasets/coco/coco2017labels/coco,type=bind,consistency=cached",
 	//   "source=/mnt/d/Share/datasets,target=/datasets,type=bind,consistency=cached",
 	//   "source=/mnt/data/datasets,target=/datasets,type=bind,consistency=cached",
-	 "source=/opt/mitan/datasets,target=/datasets,type=bind,consistency=cached",
+	//  "source=/opt/mitan/datasets,target=/datasets,type=bind,consistency=cached",
 
 	//   "source=/dev/shm,target=/dev/shm,type=bind,consistency=cached",
 	//   "source=/opt/xilinx/dsa,target=/opt/xilinx/dsa,type=bind,consistency=cached",
