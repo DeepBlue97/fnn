@@ -14,6 +14,7 @@ folders=(
 
 # 遍历文件夹并执行pip install -e .
 for folder in "${folders[@]}"; do
+  echo -------- Processing $folder --------
   cd "$folder" || exit
   git $1
   cd ..
