@@ -12,11 +12,8 @@
             "justMyCode": false,
             "args": [
                 "train",
-                // "fnnconfig.yolo.yolov3_base",
-                // "fnnconfig.movenet.movenet_base",
                 "fnnconfig.yolo.yolox_base",
-                // "fnnconfig.movenet.movenet_pallet_12kp",
-                // "/home/peter/workspace/scratch/fnn/fnnconfig/src/fnnconfig/yolo/yolox_base_b16.py"
+                // "fnnconfig.movenet.movenet_pallet_8kp",
             ]
         },
         {
